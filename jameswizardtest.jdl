@@ -1,0 +1,74 @@
+application {
+  config {
+    applicationType monolith
+    authenticationType jwt
+    baseName jameswizardtest
+    blueprints []
+    buildTool maven
+    cacheProvider redis
+    clientFramework react
+    clientPackageManager npm
+    clientTheme yeti
+    creationTimestamp 1727398943214
+    databaseType undefined
+    devDatabaseType mssql
+    dtoSuffix DTO
+    enableGradleEnterprise false
+    enableHibernateCache true
+    enableSwaggerCodegen false
+    enableTranslation true
+    jhiPrefix jhi
+    languages [en]
+    messageBroker false
+    microfrontend false
+    microfrontends []
+    nativeLanguage en
+    packageName my.codebridge.community.jameswizardtest
+    prodDatabaseType mssql
+    reactive true
+    searchEngine false
+    serverPort 8080
+    serviceDiscoveryType eureka
+    skipClient false
+    skipUserManagement false
+    testFrameworks []
+    websocket false
+    withAdminUi true
+  }
+
+  entities BusinessInformation, OfficerInCharge, TrainingProgramOwnership, TrainingProviderSInformation, TrainerDetails, User
+}
+
+entity BusinessInformation {
+  organizationName String
+  numberOfEmployees Number
+  fullTimeTrainers Number
+  partTimeTrainers String
+}
+entity OfficerInCharge {
+  officerName String
+  organizationName String
+}
+entity TrainingProgramOwnership {
+  organizationName String
+}
+entity TrainingProviderSInformation {
+  organizationName String
+  organizationAddress String
+  organizationContactNumber Number
+}
+entity TrainerDetails {
+  trainerIcPassportNumber String
+  organizationName String
+}
+entity User {
+  name String required
+  password String required
+  email String required
+}
+
+
+paginate * with pagination
+service * with serviceImpl
+dto * with mapstruct
+
